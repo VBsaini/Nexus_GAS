@@ -4,13 +4,13 @@
 #include "NexusCharacterClass.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Nexus_Gas/GameplayAbilitySystem/AttributeSet/BasicAttributeSet.h"
 
 // Sets default values
 ANexusCharacterClass::ANexusCharacterClass()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 	// Add the ability system component
 	AbilitySystemComponent = CreateDefaultSubobject<UAbilitySystemComponent>(TEXT("AbilitySystemComponent"));
 	AbilitySystemComponent->SetIsReplicated(true);
@@ -32,7 +32,9 @@ ANexusCharacterClass::ANexusCharacterClass()
 	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;
 	GetCharacterMovement()->BrakingDecelerationFalling = 1500.f;
 
+	// Add the basic attribute set
 
+	BasicAttributeSet = CreateDefaultSubobject<UBasicAttributeSet>(TEXT("BasicAttributeSet"));
 
 
 }
